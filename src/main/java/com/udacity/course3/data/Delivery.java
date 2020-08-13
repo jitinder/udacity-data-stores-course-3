@@ -25,7 +25,7 @@ public class Delivery {
     @Type(type = "yes_no")
     private Boolean complete;
 
-    @OneToMany(mappedBy = "delivery")
+    @OneToMany(mappedBy = "delivery", cascade = CascadeType.REMOVE)
     private List<Plant> plants;
 
     public Long getId() {

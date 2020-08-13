@@ -7,7 +7,6 @@ public class Flower extends Plant{
 
     private String color;
 
-
     public String getColor() {
         return color;
     }

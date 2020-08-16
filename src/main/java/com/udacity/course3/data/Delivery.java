@@ -7,6 +7,11 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@NamedQuery(
+        name = "Delivery.byName",
+        query = "select d from Delivery d where d.name = :name"
+)
+
 @Entity
 public class Delivery {
 
@@ -15,7 +20,7 @@ public class Delivery {
     private Long id;
 
     @Nationalized
-    private String recipientName;
+    private String name;
 
     @Column(name = "address_full", length = 500)
     private String address;
@@ -25,7 +30,7 @@ public class Delivery {
     @Type(type = "yes_no")
     private Boolean complete;
 
-    @OneToMany(mappedBy = "delivery", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "delivery",  cascade = CascadeType.ALL)
     private List<Plant> plants;
 
     public Long getId() {
@@ -36,12 +41,12 @@ public class Delivery {
         this.id = id;
     }
 
-    public String getRecipientName() {
-        return recipientName;
+    public String getName() {
+        return name;
     }
 
-    public void setRecipientName(String recipientName) {
-        this.recipientName = recipientName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
@@ -66,5 +71,13 @@ public class Delivery {
 
     public void setComplete(Boolean complete) {
         this.complete = complete;
+    }
+
+    public List<Plant> getPlants() {
+        return plants;
+    }
+
+    public void setPlants(List<Plant> plants) {
+        this.plants = plants;
     }
 }

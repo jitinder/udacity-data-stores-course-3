@@ -28,7 +28,7 @@ public class Delivery {
     private LocalDateTime deliveryTime;
 
     @Type(type = "yes_no")
-    private Boolean complete;
+    private Boolean complete = false;
 
     @OneToMany(mappedBy = "delivery",  cascade = CascadeType.ALL)
     private List<Plant> plants;

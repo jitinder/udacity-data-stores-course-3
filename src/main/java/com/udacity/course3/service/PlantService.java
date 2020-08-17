@@ -20,7 +20,7 @@ public class PlantService {
     }
 
     public boolean isDelivered(Long id){
-        return plantRepository.existsPlantByIdAndDeliveryCompleted(id, true);
+        return plantRepository.existsPlantByIdAndDeliveryComplete(id, true);
     }
 
     public List<Plant> cheaperThan(BigDecimal price){

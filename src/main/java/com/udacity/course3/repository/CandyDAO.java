@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface CandyDAO {
     public List<CandyData> getAllCandies();
-    public void addCandyToDelivery(CandyData candy, Long deliveryId);
+    public void addCandyToDelivery(Long candyId, Long deliveryId);
     public List<CandyData> getCandiesForDelivery(Long deliveryId);
 }
